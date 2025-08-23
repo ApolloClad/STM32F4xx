@@ -113,9 +113,9 @@
 #define X_LIMIT_PIN             5
 #define Y_LIMIT_PORT            GPIOB
 #define Y_LIMIT_PIN             9
-#define X_LIMIT_PORT_MAX        GPIOC
-#define X_LIMIT_PIN_MAX         13
-#define Z_LIMIT_PORT            GPIOB
+#define X_LIMIT_PORT_MAX        GPIOC //MAP TO BOB Z_LIMIT
+#define X_LIMIT_PIN_MAX         13    //MAP TO BOB Z_LIMIT
+#define Z_LIMIT_PORT            GPIOB //REMAP TO BOB PROBE/TOOL
 #define Z_LIMIT_PIN             7
 
 #define LIMIT_INMODE            GPIO_BITBAND
@@ -127,8 +127,8 @@
 #define M3_STEP_PIN             2
 #define M3_DIRECTION_PORT       GPIOC
 #define M3_DIRECTION_PIN        12
-#define M3_LIMIT_PORT           GPIOB
-#define M3_LIMIT_PIN            6
+#define M3_LIMIT_PORT           GPIOC //(NOT USED) REMAP TO SHARE WITH M4
+#define M3_LIMIT_PIN            14    //(NOT USED) REMAP TO SHARE WITH M4
 
 #ifdef ENABLE_SWD
 #define M3_ENABLE_PORT          GPIOB
@@ -146,8 +146,8 @@
 #define M4_STEP_PIN             14
 #define M4_DIRECTION_PORT       GPIOB
 #define M4_DIRECTION_PIN        15
-#define M4_LIMIT_PORT           GPIOB //REMAP TO SHARE WITH M3
-#define M4_LIMIT_PIN            6     //REMAP TO SHARE WITH M3
+#define M4_LIMIT_PORT           GPIOC
+#define M4_LIMIT_PIN            14
 
 #ifdef ENABLE_SWD
 #define M3_ENABLE_PORT          GPIOB
@@ -211,24 +211,24 @@
 
 //MANY REASSIGNMNETS
 
-#define AUXINPUT0_PORT          GPIOC // Safety door (MOVED TO M4 LIMIT)
-#define AUXINPUT0_PIN           14
+#define AUXINPUT0_PORT          GPIOB // PROBE? (MOVED TO M3 LIMIT) ACCESSIBLE ON BOB AND FLEXI
+#define AUXINPUT0_PIN           6
 #define AUXINPUT1_PORT          GPIOB // I2C strobe input
 #define AUXINPUT1_PIN           10
 #define AUXINPUT2_PORT          GPIOB // RESET_PIN
 #define AUXINPUT2_PIN           12
-#define AUXINPUT3_PORT          GPIOA // FEED_HOLD_PIN
-#define AUXINPUT3_PIN           0
-#define AUXINPUT4_PORT          GPIOA // CYCLE_START_PIN
-#define AUXINPUT4_PIN           1
-#define AUXINPUT5_PORT          GPIOA // LIMITS OVERRIDE?
-#define AUXINPUT5_PIN           2
-#define AUXINPUT6_PORT          GPIOC // SINGLE BLOCK
-#define AUXINPUT6_PIN           8
-#define AUXINPUT7_PORT          GPIOC // STOP DISABLE
-#define AUXINPUT7_PIN           11
-#define AUXINPUT8_PORT          GPIOC // BLOCK DELETE
-#define AUXINPUT8_PIN           4
+#define AUXINPUT3_PORT          GPIOC // FEED HOLD
+#define AUXINPUT3_PIN           8
+#define AUXINPUT4_PORT          GPIOC // CYCLE START
+#define AUXINPUT4_PIN           11
+#define AUXINPUT5_PORT          GPIOC // SAFETY DOOR
+#define AUXINPUT5_PIN           4
+#define AUXINPUT6_PORT          GPIOA // SINGLE BLOCK
+#define AUXINPUT6_PIN           0
+#define AUXINPUT7_PORT          GPIOA // STOP DISABLE
+#define AUXINPUT7_PIN           2
+#define AUXINPUT8_PORT          GPIOA // BLOCK DELETE
+#define AUXINPUT8_PIN           1
 
 // Define user-control controls (cycle start, reset, feed hold) input pins.
 #if CONTROL_ENABLE & CONTROL_HALT
@@ -244,14 +244,14 @@
 #define CYCLE_START_PIN         AUXINPUT4_PIN
 #endif
 
-// #if PROBE_ENABLE
-// #define PROBE_PORT              AUXINPUT4_PORT
-// #define PROBE_PIN               AUXINPUT4_PIN
-// #endif
+#if PROBE_ENABLE
+#define PROBE_PORT              AUXINPUT0_PORT
+#define PROBE_PIN               AUXINPUT0_PIN
+#endif
 
 #if SAFETY_DOOR_ENABLE
-#define SAFETY_DOOR_PORT        AUXINPUT0_PORT
-#define SAFETY_DOOR_PIN         AUXINPUT0_PIN  
+#define SAFETY_DOOR_PORT        AUXINPUT5_PORT
+#define SAFETY_DOOR_PIN         AUXINPUT5_PIN  
 #endif
 
 #if I2C_STROBE_ENABLE

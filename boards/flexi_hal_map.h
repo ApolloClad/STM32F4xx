@@ -39,9 +39,9 @@
 #error "Networking and MGP Serial mode cannot be enabled together!"
 #endif
 
-#if PROBE_ENABLE
-#error "Probing not supported with this custom board map!"
-#endif
+// #if PROBE_ENABLE
+// #error "Probing not supported with this custom board map!"
+// #endif
 
 #ifndef BOARD_NAME
 #define BOARD_NAME "Flexi-HAL"

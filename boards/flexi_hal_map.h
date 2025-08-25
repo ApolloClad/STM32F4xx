@@ -226,9 +226,9 @@
 #define AUXINPUT6_PORT          GPIOA // SINGLE BLOCK
 #define AUXINPUT6_PIN           0
 #define AUXINPUT7_PORT          GPIOA // STOP DISABLE
-#define AUXINPUT7_PIN           2
+#define AUXINPUT7_PIN           1
 #define AUXINPUT8_PORT          GPIOA // BLOCK DELETE
-#define AUXINPUT8_PIN           1
+#define AUXINPUT8_PIN           2
 
 // Define user-control controls (cycle start, reset, feed hold) input pins.
 #if CONTROL_ENABLE & CONTROL_HALT

@@ -39,9 +39,9 @@
 #error "Networking and MGP Serial mode cannot be enabled together!"
 #endif
 
-// #if PROBE_ENABLE
-// #error "Probing not supported with this custom board map!"
-// #endif
+#if PROBE_ENABLE
+#error "Probing not supported with this custom board map!"
+#endif
 
 #ifndef BOARD_NAME
 #define BOARD_NAME "Flexi-HAL"
@@ -244,24 +244,24 @@
 #define CYCLE_START_PIN         AUXINPUT4_PIN
 #endif
 
-#if PROBE_ENABLE
-#define PROBE_PORT              AUXINPUT0_PORT
-#define PROBE_PIN               AUXINPUT0_PIN
-#endif
-
 #if SAFETY_DOOR_ENABLE
 #define SAFETY_DOOR_PORT        AUXINPUT5_PORT
 #define SAFETY_DOOR_PIN         AUXINPUT5_PIN  
 #endif
 
+// #if PROBE_ENABLE
+// #define PROBE_PORT              AUXINPUT0_PORT
+// #define PROBE_PIN               AUXINPUT0_PIN
+// #endif
+
+#if MOTOR_FAULT_ENABLE
+#define MOTOR_FAULT_PORT      AUXINPUT0_PORT
+#define MOTOR_FAULT_PIN       AUXINPUT0_PIN
+#endif
+
 #if I2C_STROBE_ENABLE
 #define I2C_STROBE_PORT         AUXINPUT1_PORT
 #define I2C_STROBE_PIN          AUXINPUT1_PIN
-#endif
-
-#if MOTOR_WARNING_ENABLE
-#define MOTOR_WARNING_PORT      AUXINPUT2_PORT
-#define MOTOR_WARNING_PIN       AUXINPUT2_PIN
 #endif
 
 #if SDCARD_ENABLE || ETHERNET_ENABLE

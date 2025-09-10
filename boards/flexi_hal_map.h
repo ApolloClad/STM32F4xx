@@ -127,8 +127,8 @@
 #define M3_STEP_PIN             2
 #define M3_DIRECTION_PORT       GPIOC
 #define M3_DIRECTION_PIN        12
-#define M3_LIMIT_PORT           GPIOC //(NOT USED) REMAP TO SHARE WITH M4
-#define M3_LIMIT_PIN            14    //(NOT USED) REMAP TO SHARE WITH M4
+#define M3_LIMIT_PORT           GPIOB //(NOT USED) REMAP TO SHARE WITH Y
+#define M3_LIMIT_PIN            9     //(NOT USED) REMAP TO SHARE WITH Y
 
 #ifdef ENABLE_SWD
 #define M3_ENABLE_PORT          GPIOB
@@ -146,8 +146,8 @@
 #define M4_STEP_PIN             14
 #define M4_DIRECTION_PORT       GPIOB
 #define M4_DIRECTION_PIN        15
-#define M4_LIMIT_PORT           GPIOC
-#define M4_LIMIT_PIN            14
+#define M4_LIMIT_PORT           GPIOB //(NOT USED) REMAP TO SHARE WITH Y
+#define M4_LIMIT_PIN            9     //(NOT USED) REMAP TO SHARE WITH Y
 
 #ifdef ENABLE_SWD
 #define M3_ENABLE_PORT          GPIOB
@@ -211,8 +211,8 @@
 
 //MANY REASSIGNMNETS
 
-#define AUXINPUT0_PORT          GPIOB // PROBE? (MOVED TO M3 LIMIT) ACCESSIBLE ON BOB AND FLEXI
-#define AUXINPUT0_PIN           6
+#define AUXINPUT0_PORT          GPIOC // AUXIN 0 (CLAIMED FOR COOLANT OK BY PLUGIN)
+#define AUXINPUT0_PIN           14
 #define AUXINPUT1_PORT          GPIOB // I2C strobe input
 #define AUXINPUT1_PIN           10
 #define AUXINPUT2_PORT          GPIOB // RESET_PIN
@@ -229,6 +229,8 @@
 #define AUXINPUT7_PIN           1
 #define AUXINPUT8_PORT          GPIOA // BLOCK DELETE
 #define AUXINPUT8_PIN           2
+#define AUXINPUT9_PORT          GPIOB // MOTOR FAULT (TODO: CRASH SENSOR - ACCESSIBLE ON BOB AND FLEXI)
+#define AUXINPUT9_PIN           6
 
 // Define user-control controls (cycle start, reset, feed hold) input pins.
 #if CONTROL_ENABLE & CONTROL_HALT
@@ -255,8 +257,8 @@
 // #endif
 
 #if MOTOR_FAULT_ENABLE
-#define MOTOR_FAULT_PORT      AUXINPUT0_PORT
-#define MOTOR_FAULT_PIN       AUXINPUT0_PIN
+#define MOTOR_FAULT_PORT      AUXINPUT9_PORT
+#define MOTOR_FAULT_PIN       AUXINPUT9_PIN
 #endif
 
 #if I2C_STROBE_ENABLE

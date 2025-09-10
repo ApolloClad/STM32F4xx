@@ -127,8 +127,8 @@
 #define M3_STEP_PIN             2
 #define M3_DIRECTION_PORT       GPIOC
 #define M3_DIRECTION_PIN        12
-#define M3_LIMIT_PORT           GPIOB //(NOT USED) REMAP TO SHARE WITH Y
-#define M3_LIMIT_PIN            9     //(NOT USED) REMAP TO SHARE WITH Y
+// #define M3_LIMIT_PORT           GPIOB
+// #define M3_LIMIT_PIN            6
 
 #ifdef ENABLE_SWD
 #define M3_ENABLE_PORT          GPIOB
@@ -146,8 +146,8 @@
 #define M4_STEP_PIN             14
 #define M4_DIRECTION_PORT       GPIOB
 #define M4_DIRECTION_PIN        15
-#define M4_LIMIT_PORT           GPIOB //(NOT USED) REMAP TO SHARE WITH Y
-#define M4_LIMIT_PIN            9     //(NOT USED) REMAP TO SHARE WITH Y
+// #define M4_LIMIT_PORT           GPIOC
+// #define M4_LIMIT_PIN            14
 
 #ifdef ENABLE_SWD
 #define M3_ENABLE_PORT          GPIOB

@@ -3287,7 +3287,7 @@ bool driver_init (void)
 
 
 static const sys_command_t boot_command_list[] = {
-    {"HRDRST", hard_reset, { .allow_blocking = On, .noargs = On }, { .str = "hard reset controller" } },
+    {"REBOOT", hard_reset, { .allow_blocking = On, .noargs = On }, { .str = "hard reset controller" } },
 #if USB_SERIAL_CDC
     {"DFU", enter_dfu, { .allow_blocking = On, .noargs = On }, { .str = "enter DFU bootloader" } },
 #endif
